@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TudoList</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="root">
+        <div>
+            <input v-model="inputValue">
+            <button @click="putList">提交</button>
+            <ul>
+                <li v-for="(item, index) of list" :key="index">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        
+        new Vue({
+            el: "#root",
+            data: {
+                inputValue: 'hello',
+                list:[]
+            },
+            methods: {
+                putList: function() {
+                    this.list.push(this.inputValue);
+                    this.inputValue = '';
+                }
+            }
+        })
+    </script>
+</body>
+</html>
